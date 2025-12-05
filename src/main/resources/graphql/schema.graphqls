@@ -64,3 +64,4 @@ type Mutation {
     assignToProject(employeeId:ID!, projectId:ID!, rol:String!): ProjectAssignment
 
 }
+

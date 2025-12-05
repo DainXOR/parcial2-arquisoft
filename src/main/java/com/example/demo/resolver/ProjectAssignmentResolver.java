@@ -41,7 +41,7 @@ public class ProjectAssignmentResolver {
     }
 
     @MutationMapping
-    public ProjectAssignment assignToProject(@Argument Long employeeId,
+    public ProjectAssignment assignToProject(@Argument Integer employeeId,
                                              @Argument Long projectId, 
                                              @Argument String rol ){
         
