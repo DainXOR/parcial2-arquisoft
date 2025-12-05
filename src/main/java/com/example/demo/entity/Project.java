@@ -3,14 +3,14 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.UUID;
+
 
 @Entity
 public class Project {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false, length = 120)
     private String name;
@@ -37,7 +37,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(Integer id, String name, String description, LocalDate startDate, LocalDate endDate, Status status) {
+    public Project(Long id, String name, String description, LocalDate startDate, LocalDate endDate, Status status) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -60,11 +60,11 @@ public class Project {
         updatedAt = Instant.now();
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
