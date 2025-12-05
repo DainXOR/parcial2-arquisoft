@@ -1,0 +1,62 @@
+type Employee {
+    employeeId: ID!
+    name: String!
+    lastName: String
+    phoneNumber: String!
+    documentType: String!
+    documentNumber: String!
+    status: String!
+    assignments: [ProjectAssignment!]!
+}
+
+type EmployeeInput {
+    name: String!
+    lastName: String
+    phoneNumber: String!
+    documentType: String!
+    documentNumber: String!
+    status: String!
+}
+
+type Project {
+    projectId: ID!
+    name: String!
+    description: String!
+    startDate: Date!
+    endDate: Date!
+    createdAt: Date!
+    updatedAt: Date!
+    assignments: [ProjectAssignment!]!
+}
+
+type ProjectAssignment {
+    assignmentId: ID!
+    employeeRol: String!
+    status: String!
+    employee: Employee!
+    project: Project!
+}
+
+type Query {
+    projectById(id: ID): Project
+    projects: [Project]
+    employees: [Employee]
+    employByDocument(document:String!): Employee
+}
+
+type Mutation {
+    createProject(name:String!, description:String, startDate:Date!, endDate: Date!,
+                  status: String!): Project
+    
+    updateProject(id: ID!, name:String!, description:String, startDate:Date!, endDate: Date!,
+                  status: String!): Project
+
+    deleteProject(id:ID!): boolean
+
+    createEmployee(input:EmployeeInput): Employee
+
+    updateEmployee(id:ID!, input:EmployeeInput): Employee
+
+    deleteEmployee(id:ID!): boolean
+
+}
