@@ -10,7 +10,7 @@ public class Project {
 
     @Id
     @GeneratedValue
-    private UUID id;
+    private Integer id;
 
     @Column(nullable = false, length = 120)
     private String name;
@@ -34,7 +34,19 @@ public class Project {
     @Column(nullable = false)
     private Instant updatedAt;
 
+    public Project() {
+    }
 
+    public Project(Integer id, String name, String description, LocalDate startDate, LocalDate endDate, Status status) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.status = status;
+        this.createdAt = Instant.now();
+        this.updatedAt = Instant.now();
+    }
 
     @PrePersist
     protected void onCreate() {
@@ -48,11 +60,11 @@ public class Project {
         updatedAt = Instant.now();
     }
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
