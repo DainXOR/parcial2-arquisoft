@@ -35,7 +35,7 @@ public class ProjectAssignmentResolver {
     }
 
     @QueryMapping
-    public List<ProjectAssignment> findProjectsbyEmployeeDoc(String document){
+    public List<ProjectAssignment> findProjectsbyEmployeeDoc(@Argument String document){
         return projectAssignmentService.findProjectsbyEmployeeDoc(document);
         
     }

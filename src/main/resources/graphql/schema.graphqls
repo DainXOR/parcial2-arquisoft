@@ -42,6 +42,8 @@ type Query {
     projects: [Project]
     employees: [Employee]
     employByDocument(document:String!): Employee
+    listAllAssignments: [ProjectAssignment]
+    findProjectsbyEmployeeDoc(id: ID): [ProjectAssignment]
 }
 
 type Mutation {
@@ -58,5 +60,7 @@ type Mutation {
     updateEmployee(id:ID!, input:EmployeeInput): Employee
 
     deleteEmployee(id:ID!): boolean
+
+    assignToProject(employeeId:ID!, projectId:ID!, rol:String!): ProjectAssignment
 
 }
