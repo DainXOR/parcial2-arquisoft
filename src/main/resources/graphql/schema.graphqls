@@ -15,7 +15,7 @@ type Employee {
 
 input EmployeeInput {
     name: String!
-    lastName: String
+    lastName: String!
     phoneNumber: String!
     documentType: String!
     documentNumber: String!
