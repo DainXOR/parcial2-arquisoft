@@ -6,11 +6,13 @@ import java.time.LocalDate;
 
 
 @Entity
+@Table(name = "project")
 public class Project {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "project_id")
+    private Long projectId;
 
     @Column(nullable = false, length = 120)
     private String name;
@@ -38,7 +40,7 @@ public class Project {
     }
 
     public Project(Long id, String name, String description, LocalDate startDate, LocalDate endDate, Status status) {
-        this.id = id;
+        this.projectId = id;
         this.name = name;
         this.description = description;
         this.startDate = startDate;
@@ -60,12 +62,12 @@ public class Project {
         updatedAt = Instant.now();
     }
 
-    public Long getId() {
-        return id;
+    public Long getProjectId() {
+        return projectId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     public String getName() {
