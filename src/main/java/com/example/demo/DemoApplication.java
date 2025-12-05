@@ -1,4 +1,4 @@
-package com.arquisoft.parcial2;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
