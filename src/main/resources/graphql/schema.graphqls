@@ -9,6 +9,15 @@ type Employee {
     assignments: [ProjectAssignment!]!
 }
 
+type EmployeeInput {
+    name: String!
+    lastName: String
+    phoneNumber: String!
+    documentType: String!
+    documentNumber: String!
+    status: String!
+}
+
 type Project {
     projectId: ID!
     name: String!
@@ -31,7 +40,8 @@ type ProjectAssignment {
 type Query {
     projectById(id: ID): Project
     projects: [Project]
-
+    employees: [Employee]
+    employByDocument(document:String!): Employee
 }
 
 type Mutation {
@@ -42,5 +52,11 @@ type Mutation {
                   status: String!): Project
 
     deleteProject(id:ID!): boolean
+
+    createEmployee(input:EmployeeInput): Employee
+
+    updateEmployee(id:ID!, input:EmployeeInput): Employee
+
+    deleteEmployee(id:ID!): boolean
 
 }
