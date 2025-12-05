@@ -36,8 +36,7 @@ public class ProjectAssignment {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    public ProjectAssignment(Long projectAssignmentId) {
-        this.projectAssignmentId = projectAssignmentId;
+    public ProjectAssignment() {
     }
 
     public ProjectAssignment(Long projectAssignmentId, String employeeRol, Project project, Employee employee) {

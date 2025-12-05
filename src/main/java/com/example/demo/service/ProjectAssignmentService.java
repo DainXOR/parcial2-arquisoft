@@ -20,6 +20,10 @@ public class ProjectAssignmentService {
         this.projectAssignmentRepository = projectAssignmentRepository;
     }
 
+    public ProjectAssignment createAssignment(ProjectAssignment assignment){
+        return projectAssignmentRepository.save(assignment);
+    }
+
     public List<ProjectAssignment> listAllAssigments(){
         return projectAssignmentRepository.findAll();
     }
