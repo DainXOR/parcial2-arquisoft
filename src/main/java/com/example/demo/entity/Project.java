@@ -3,6 +3,8 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -35,6 +37,10 @@ public class Project {
 
     @Column(nullable = false)
     private Instant updatedAt;
+
+    // Relación bidireccional con ProjectAssignment
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProjectAssignment> assignments = new ArrayList<>();
 
     public Project() {
     }
