@@ -34,6 +34,8 @@ public class Project {
     @Column(nullable = false)
     private Instant updatedAt;
 
+
+
     @PrePersist
     protected void onCreate() {
         Instant now = Instant.now();
@@ -92,6 +94,22 @@ public class Project {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 
     public enum Status {
